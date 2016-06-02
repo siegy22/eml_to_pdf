@@ -1,3 +1,5 @@
+require 'pathname'
+
 module EmlToPdf
   class Email
     MIME_TYPES = {
@@ -14,13 +16,12 @@ module EmlToPdf
 
     def visible_attachments
       @mail.attachments.select do |attachment|
-        attachment.content_id.nil?
+        !attachment.inline?
       end
     end
 
     def to_html
-      most_inner_parts = extract_parts(@mail)
-      html = extract_html_from_parts(most_inner_parts, @fallback_text)
+      html = extract_html_part(@mail, @fallback_text)
       html = resolve_cids_from_attachments(html, @mail.attachments)
       html = add_mail_metadata_to_html(@mail, html)
       html
@@ -40,39 +41,20 @@ module EmlToPdf
         if attachment.content_id && attachment.content_transfer_encoding == "base64"
           mime_type = attachment.mime_type
           decoded = attachment.body.raw_source.strip.gsub(/[\n\t\r]/, "")
-          content_id = "cid:" + attachment.content_id[1..-2] # remove <> from Content-ID
-          list[content_id] = "data:#{mime_type};base64,#{decoded}"
+          list[attachment.url] = "data:#{mime_type};base64,#{decoded}"
         end
         list
       end
     end
 
-    def extract_parts(mail_or_part)
-      parts = mail_or_part.parts
-      if parts.empty?
-        [mail_or_part]
-      elsif multipart_part = parts.detect(&:multipart?)
-        extract_parts(multipart_part)
+    def extract_html_part(mail, fallback)
+      if html_part = mail.html_part
+        html_part.decoded
+      elsif text_part = mail.text_part
+        wrap_text_in_html(text_part.decoded)
       else
-        parts
+        wrap_text_in_html(fallback)
       end
-    end
-
-    def extract_html_from_parts(parts, fallback_text)
-      if (html_body = find_body_with_type(parts, :html)) && usable_html?(html_body)
-        html_body
-      elsif text_body = find_body_with_type(parts, :plain_text)
-        wrap_text_in_html(text_body)
-      else
-        wrap_text_in_html(fallback_text)
-      end
-    end
-
-    def find_body_with_type(parts, type)
-      part = parts.detect do |part|
-        part.mime_type == MIME_TYPES[type]
-      end
-      part.decoded if part
     end
 
     def wrap_text_in_html(text)
@@ -80,9 +62,9 @@ module EmlToPdf
     end
 
     def add_mail_metadata_to_html(mail, html)
-      context = MetadataContext.new(from: mail.from,
-                                    to: mail.to,
-                                    cc: mail.cc,
+      context = MetadataContext.new(from: save_extract_header(mail, :from),
+                                    to: save_extract_header(mail, :to),
+                                    cc: save_extract_header(mail, :cc),
                                     date: mail.date,
                                     subject: mail.subject,
                                     attachments: visible_attachments)
@@ -90,7 +72,7 @@ module EmlToPdf
       style = render_template("style.html")
       doc = Nokogiri::HTML(html)
       doc.at_css("body").prepend_child(heading)
-      doc.at_css("head").prepend_child(style)
+      doc.at_css("body").prepend_child(style)
       doc.to_html
     end
 
@@ -100,9 +82,12 @@ module EmlToPdf
       renderer.result(binding)
     end
 
-    def usable_html?(html)
-      doc = Nokogiri::HTML(html)
-      doc.at_css("html") && doc.at_css("head") && doc.at_css("body")
+    def save_extract_header(mail, header)
+      if header = mail.header[header]
+        header.decoded
+      else
+        ""
+      end
     end
   end
 end

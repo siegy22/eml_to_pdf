@@ -1,0 +1,126 @@
+From y.siegrist@4teamwork.ch Thu May 26 11:14:44 2016
+From: Yves Siegrist <y.siegrist@4teamwork.ch>
+X-Pgp-Agent: GPGMail 2.6b2
+Content-Type: multipart/signed;
+	boundary="Apple-Mail=_EBB89905-383F-4755-AA24-31D706C52C13";
+	protocol="application/pgp-signature";
+	micalg=pgp-sha256
+X-Smtp-Server: 7BB4AE10-56F3-4EE2-8573-7F1167864C6B
+X-Universally-Unique-Identifier: B74BF1DE-46B5-4125-B96D-AE0FB46585AA
+Subject: Test
+Date: Thu, 26 May 2016 11:14:44 +0200
+Message-Id: <229D4B28-3834-49D9-9185-0F53DBEF20A9@4teamwork.ch>
+To: Yves Siegrist <y.siegrist@4teamwork.ch>
+Mime-Version: 1.0 (Mac OS X Mail 9.3 \(3124\))
+
+
+--Apple-Mail=_EBB89905-383F-4755-AA24-31D706C52C13
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
+
+Hallo
+
+Das ist ein Test.
+
+Gr=C3=BCsse
+XYZ
+
+--Apple-Mail=_EBB89905-383F-4755-AA24-31D706C52C13
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename=signature.asc
+Content-Type: application/pgp-signature;
+	name=signature.asc
+Content-Description: Message signed with OpenPGP using GPGMail
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIcBAEBCAAGBQJXRr6QAAoJEJJSO2cir57WCLkP/jdIukMBENcBaFeHJlwgHMU5
+vgAD16felANIwYL+grkyiZwJBn2inlDTjg+TTjL0kHVgbWA46kn3xolgUhdf9C+d
+066Gt7bRTE14tNS3CfDg+Lz+z2FuGBwIs4LvuQUFygg2ouCJFogCSsNPufncYiGY
+frV+r0lblCs8D592SLuvfveZtaqsfuRCldMm2wdDvmEgOJxmmVczUl0aeqK9yOHi
+2E6i01Z92D1q8D40d26S4j5auXPQGuM6bLYmTu8c+c+KlN10r3GBlHR72B8CD0Vr
+pwCsuPsAiL9XX50VNBK4UT14MJjigafeJwEmCUu9TJarvWTRhc1AllCEogaFicbL
+IXmGqhnK9zlJMyTXEya76jZBkgkKMhd9IlPkR5Regk7R7MOdXUhdQY/ZlFALtJGM
+UMzw4V4tAXoy5bGsWe03tGkPqmTudtKQ0IjHkiIk2lN3ovDqlwPj3DcBzmJyPdbM
+7oJSZyc+p+fKUB52KvDdtZrh4r2LCvRhcr81G2K7KWQVOYjRcriJVmbY2NHmLFid
+i66Rk+mnx2omyC2kToiqy5Ws3CdF4u3FREIMQUHqiqhE+QMS87I8Gra6j9hWDxXC
+uc0JMYf7du7MwZPnln/XKmoUw1DKB3EZ8jIy0Lt0dCozrPP9gq1eW4yHtxpoTfwi
+Ww5x8Hd1kp31rO/33pAx
+=7XwW
+-----END PGP SIGNATURE-----
+
+--Apple-Mail=_EBB89905-383F-4755-AA24-31D706C52C13--
+
+From y.siegrist@4teamwork.ch Thu Jun 02 13:53:55 2016
+Return-Path: <y.siegrist@4teamwork.ch>
+Received: from [127.0.0.1] (ec2-52-36-99-221.us-west-2.compute.amazonaws.com. [52.36.99.221])
+        by smtp.gmail.com with ESMTPSA id h77sm305933pfh.95.2016.06.02.04.53.55
+        for <y.siegrist@4teamwork.ch>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 02 Jun 2016 04:53:55 -0700 (PDT)
+Date: Thu, 02 Jun 2016 04:53:55 -0700 (PDT)
+References: <229D4B28-3834-49D9-9185-0F53DBEF20A9@4teamwork.ch>
+In-Reply-To: <229D4B28-3834-49D9-9185-0F53DBEF20A9@4teamwork.ch>
+User-Agent: NylasMailer/0.4
+Message-Id: <226vha7vuuvq2hi852h65fz0b-0@mailer.nylas.com>
+X-Inbox-Id: 226vha7vuuvq2hi852h65fz0b-0
+To: Yves Siegrist <y.siegrist@4teamwork.ch>
+From: Yves Siegrist <y.siegrist@4teamwork.ch>
+Subject: Fwd: Test
+Mime-Version: 1.0
+Content-Type: multipart/mixed; boundary="e6bc8387eeed4859807db8c72c4f3a5c"
+
+--e6bc8387eeed4859807db8c72c4f3a5c
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="e7b61499299447b28f6ab1d4db8863fa"
+
+--e7b61499299447b28f6ab1d4db8863fa
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"
+Mime-Version: 1.0
+
+TXVsdGlwYXJ0IHZlcnNjaGFjaHRlbHQKCiAgCgpcLS0tLS0tLS0tLSBGb3J3YXJkZWQgbWVzc2Fn
+ZSAtLS0tLS0tLS0gIAogIApGcm9tOiBZdmVzIFNpZWdyaXN0ICZsdDt5LnNpZWdyaXN0QDR0ZWFt
+d29yay5jaCZndDsgIApTdWJqZWN0OiBUZXN0ICAKRGF0ZTogTWF5IDI2IDIwMTYsIGF0IDExOjE0
+IGFtICAKVG86IFl2ZXMgU2llZ3Jpc3QgJmx0O3kuc2llZ3Jpc3RANHRlYW13b3JrLmNoJmd0OyAg
+CiAgCgpIYWxsbwoKRGFzIGlzdCBlaW4gVGVzdC4KCkdyw7xzc2UgIApYWVoKCg==
+
+--e7b61499299447b28f6ab1d4db8863fa
+Content-Transfer-Encoding: base64
+Content-Type: text/html; charset="utf-8"
+Mime-Version: 1.0
+
+PGhlYWQ+PC9oZWFkPjxib2R5PjxkaXY+TXVsdGlwYXJ0IHZlcnNjaGFjaHRlbHQmbmJzcDs8L2Rp
+dj48YnI+PGRpdiBjbGFzcz0iZ21haWxfcXVvdGUiPgogIC0tLS0tLS0tLS0gRm9yd2FyZGVkIG1l
+c3NhZ2UgLS0tLS0tLS0tCiAgPGJyPjxicj4KICBGcm9tOiBZdmVzIFNpZWdyaXN0ICZsdDt5LnNp
+ZWdyaXN0QDR0ZWFtd29yay5jaCZndDs8YnI+U3ViamVjdDogVGVzdDxicj5EYXRlOiBNYXkgMjYg
+MjAxNiwgYXQgMTE6MTQgYW08YnI+VG86IFl2ZXMgU2llZ3Jpc3QgJmx0O3kuc2llZ3Jpc3RANHRl
+YW13b3JrLmNoJmd0OwogIDxicj48YnI+CiAgPHA+SGFsbG88L3A+CjxwPkRhcyBpc3QgZWluIFRl
+c3QuPC9wPgo8cD5HcsO8c3NlPGJyPlhZWjwvcD4KPC9kaXY+PC9ib2R5Pg==
+--e7b61499299447b28f6ab1d4db8863fa--
+
+--e6bc8387eeed4859807db8c72c4f3a5c
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="signature.asc"
+Content-Type: application/pgp-signature; name="signature.asc"
+Mime-Version: 1.0
+
+LS0tLS1CRUdJTiBQR1AgU0lHTkFUVVJFLS0tLS0NCg0KaVFJY0JBRUJDQUFHQlFKWFJyNlFBQW9K
+RUpKU08yY2lyNTdXQ0xrUC9qZEl1a01CRU5jQmFGZUhKbHdnSE1VNQ0KdmdBRDE2ZmVsQU5Jd1lM
+K2dya3lpWndKQm4yaW5sRFRqZytUVGpMMGtIVmdiV0E0NmtuM3hvbGdVaGRmOUMrZA0KMDY2R3Q3
+YlJURTE0dE5TM0NmRGcrTHorejJGdUdCd0lzNEx2dVFVRnlnZzJvdUNKRm9nQ1NzTlB1Zm5jWWlH
+WQ0KZnJWK3IwbGJsQ3M4RDU5MlNMdXZmdmVadGFxc2Z1UkNsZE1tMndkRHZtRWdPSnhtbVZjelVs
+MGFlcUs5eU9IaQ0KMkU2aTAxWjkyRDFxOEQ0MGQyNlM0ajVhdVhQUUd1TTZiTFltVHU4YytjK0ts
+TjEwcjNHQmxIUjcyQjhDRDBWcg0KcHdDc3VQc0FpTDlYWDUwVk5CSzRVVDE0TUpqaWdhZmVKd0Vt
+Q1V1OVRKYXJ2V1RSaGMxQWxsQ0VvZ2FGaWNiTA0KSVhtR3Fobks5emxKTXlUWEV5YTc2alpCa2dr
+S01oZDlJbFBrUjVSZWdrN1I3TU9kWFVoZFFZL1psRkFMdEpHTQ0KVU16dzRWNHRBWG95NWJHc1dl
+MDN0R2tQcW1UdWR0S1EwSWpIa2lJazJsTjNvdkRxbHdQajNEY0J6bUp5UGRiTQ0KN29KU1p5Yytw
+K2ZLVUI1Mkt2RGR0WnJoNHIyTEN2UmhjcjgxRzJLN0tXUVZPWWpSY3JpSlZtYlkyTkhtTEZpZA0K
+aTY2UmsrbW54Mm9teUMya1RvaXF5NVdzM0NkRjR1M0ZSRUlNUVVIcWlxaEUrUU1TODdJOEdyYTZq
+OWhXRHhYQw0KdWMwSk1ZZjdkdTdNd1pQbmxuL1hLbW9VdzFES0IzRVo4akl5MEx0MGRDb3pyUFA5
+Z3ExZVc0eUh0eHBvVGZ3aQ0KV3c1eDhIZDFrcDMxck8vMzNwQXgNCj03WHdXDQotLS0tLUVORCBQ
+R1AgU0lHTkFUVVJFLS0tLS0NCg==
+
+--e6bc8387eeed4859807db8c72c4f3a5c--

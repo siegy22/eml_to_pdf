@@ -2,15 +2,15 @@
   <table>
     <tr>
       <td><strong>Von:</strong></td>
-      <td><%= @from.join(", ") %></td>
+      <td><%= html_escape(@from) %></td>
     </tr>
     <tr>
       <td><strong>An:</strong></td>
-      <td><%= @to.join(", ") %></td>
+      <td><%= html_escape(@to) %></td>
     </tr>
     <tr>
       <td><strong>Cc:</strong></td>
-      <td><%= @cc.join(", ") if @cc %></td>
+      <td><%= html_escape(@cc) %></td>
     </tr>
     <tr>
       <td><strong>Datum:</strong></td>
