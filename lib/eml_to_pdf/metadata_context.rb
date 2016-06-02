@@ -13,11 +13,7 @@ module EmlToPdf
     end
 
     def format_date(date)
-      if defined?(I18n)
-        I18n.l(date)
-      else
-        date.to_s
-      end
+      date.strftime("%d.%m.%Y um %H:%M")
     end
 
     def get_binding
