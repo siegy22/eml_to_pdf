@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
-
-require "bundler/setup"
-require "eml_to_pdf"
-EmlToPdf.convert(ARGV[0], ARGV[1])
+if ARGV[0] && ARGV[1]
+  require "bundler/setup"
+  require "eml_to_pdf"
+  EmlToPdf.convert(ARGV[0], ARGV[1])
+else
+  puts %{Please provide an input as well as an output path\nExample: emltopdf test-email.eml output.pdf}
+end

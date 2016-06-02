@@ -1,8 +1,8 @@
 # EmlToPdf
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/eml_to_pdf`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to EmlToPdf.
+A small converter to convert an eml file to a pdf.
+This gem uses `wkhtmltopdf`. You can get the installer from [here](http://wkhtmltopdf.org/downloads.html)
 
 ## Installation
 
@@ -22,7 +22,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Use the `convert` method to covert an eml to a pdf
+
+```ruby
+EmlToPdf.convert("~/Desktop/my_test_email.eml", "~/Desktop/converted_email.pdf")
+```
+
+Or you can use the executable
+
+    $ emltopdf input-path output-path
 
 ## Development
 
@@ -38,4 +46,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

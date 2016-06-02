@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Yves Siegrist"]
   spec.email         = ["Elektron1c97@gmail.com"]
 
+  spec.description   = %q{This gem uses wkhtmltopdf to convert an eml to a pdf. (eml -> html -> pdf)}
   spec.summary       = %q{This gem allows you to convert an eml (email) into a pdf.}
   spec.homepage      = "https://github.com/Elektron1c97/eml_to_pdf"
   spec.license       = "MIT"
@@ -21,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
 
-  spec.add_dependency 'filesize'
-  spec.add_dependency 'mail'
-  spec.add_dependency 'nokogiri'
+  spec.add_runtime_dependency 'filesize', '~> 0.1.1'
+  spec.add_runtime_dependency 'mail', '~> 2.5', '>= 2.5.4'
+  spec.add_runtime_dependency 'nokogiri', '~> 1.6', '>= 1.6.7.2'
 end
