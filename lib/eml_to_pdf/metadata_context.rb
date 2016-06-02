@@ -12,6 +12,14 @@ module EmlToPdf
       Filesize.from("#{attachment.body.decoded.size} B").pretty
     end
 
+    def format_date(date)
+      if defined?(I18n)
+        I18n.l(date)
+      else
+        date.to_s
+      end
+    end
+
     def get_binding
       binding
     end

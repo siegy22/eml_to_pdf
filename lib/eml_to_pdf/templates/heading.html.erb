@@ -1,16 +1,20 @@
 <div class="email-metadata">
   <table>
     <tr>
-      <td>Von: <%= @from.join(", ") %></td>
+      <td><strong>Von:</strong></td>
+      <td><%= @from.join(", ") %></td>
     </tr>
     <tr>
-      <td>An: <%= @to.join(", ") %></td>
+      <td><strong>An:</strong></td>
+      <td><%= @to.join(", ") %></td>
     </tr>
     <tr>
-      <td>Cc: <%= @cc.join(", ") if @cc %></td>
+      <td><strong>Cc:</strong></td>
+      <td><%= @cc.join(", ") if @cc %></td>
     </tr>
     <tr>
-      <td>Datum: <%= @date.to_s %></td>
+      <td><strong>Datum:</strong></td>
+      <td><%= format_date(@date) %></td>
     </tr>
   </table>
   <h3><%= @subject %></h3>
