@@ -30,7 +30,7 @@ EmlToPdf.convert("~/Desktop/my_test_email.eml", "~/Desktop/converted_email.pdf")
 
 Or you can use the executable
 
-    $ emltopdf input-path output-path
+    $ eml_to_pdf input-path output-path
 
 ## Development
 
