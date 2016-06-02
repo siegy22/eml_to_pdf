@@ -1,0 +1,26 @@
+<div class="email-metadata">
+  <table>
+    <tr>
+      <td>Von: <%= @from.join(", ") %></td>
+    </tr>
+    <tr>
+      <td>An: <%= @to.join(", ") %></td>
+    </tr>
+    <tr>
+      <td>Cc: <%= @cc.join(", ") if @cc %></td>
+    </tr>
+    <tr>
+      <td>Datum: <%= @date.to_s %></td>
+    </tr>
+  </table>
+  <h3><%= @subject %></h3>
+  <hr>
+  <ul class="email-attachments">
+    <% @attachments.each do |att| %>
+      <li class="attachement">
+        <span class="filename"><%= att.filename %></span>
+        <span class="file-size"><%= format_attachment_size(att) %></span>
+      </li>
+    <% end %>
+  </ul>
+</div>

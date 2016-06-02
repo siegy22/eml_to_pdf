@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "eml_to_pdf"
+EmlToPdf.convert(ARGV[0], ARGV[1])
