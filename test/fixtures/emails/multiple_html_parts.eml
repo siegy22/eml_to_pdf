@@ -1,0 +1,27 @@
+From: John Doe <john@doe.come>
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_C5D1E5D9-0F1E-429C-98AD-D70C669BF5ED"
+Subject: multiple html parts
+Date: Wed, 11 Mar 2015 15:27:25 +0100
+To: john@doe.com
+
+--Apple-Mail=_C5D1E5D9-0F1E-429C-98AD-D70C669BF5ED
+Content-Type: multipart/mixed;
+	boundary="Apple-Mail=_89845EDF-F75F-44FC-A9E3-69A4A41E5539"
+
+--Apple-Mail=_89845EDF-F75F-44FC-A9E3-69A4A41E5539
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
+
+<html><head><meta http-equiv="Content-Type" content="text/html charset=us-ascii"></head><body style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;" class=""><div class="">Hello</div></body></html>
+
+--Apple-Mail=_89845EDF-F75F-44FC-A9E3-69A4A41E5539
+Content-Transfer-Encoding: 7bit
+Content-Type: text/html;
+	charset=us-ascii
+
+<html><head><meta http-equiv="Content-Type" content="text/html charset=us-ascii"></head><body style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;" class=""><div class="">World</div></body></html>
+--Apple-Mail=_89845EDF-F75F-44FC-A9E3-69A4A41E5539--
+
+--Apple-Mail=_C5D1E5D9-0F1E-429C-98AD-D70C669BF5ED--

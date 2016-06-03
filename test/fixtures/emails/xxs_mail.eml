@@ -1,0 +1,65 @@
+Delivered-To: philippe.gross@4teamwork.ch
+Received: by 10.107.16.30 with SMTP id y30csp799743ioi;
+        Thu, 16 Oct 2014 07:48:06 -0700 (PDT)
+X-Received: by 10.181.8.98 with SMTP id dj2mr6568009wid.70.1413470885435;
+        Thu, 16 Oct 2014 07:48:05 -0700 (PDT)
+Return-Path: <gross.philippe@gmail.com>
+Received: from mail-wi0-x22c.google.com (mail-wi0-x22c.google.com. [2a00:1450:400c:c05::22c])
+        by mx.google.com with ESMTPS id jh4si2586416wid.12.2014.10.16.07.48.04
+        for <philippe.gross@4teamwork.ch>
+        (version=TLSv1 cipher=ECDHE-RSA-RC4-SHA bits=128/128);
+        Thu, 16 Oct 2014 07:48:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gross.philippe@gmail.com designates 2a00:1450:400c:c05::22c as permitted sender) client-ip=2a00:1450:400c:c05::22c;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of gross.philippe@gmail.com designates 2a00:1450:400c:c05::22c as permitted sender) smtp.mail=gross.philippe@gmail.com;
+       dkim=pass header.i=@gmail.com;
+       dmarc=pass (p=NONE dis=NONE) header.from=gmail.com
+Received: by mail-wi0-f172.google.com with SMTP id n3so1733877wiv.5
+        for <philippe.gross@4teamwork.ch>; Thu, 16 Oct 2014 07:48:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=from:content-type:subject:message-id:date:to:mime-version;
+        bh=iTi2QepMG4l0xCdP1Al0dmiAdJ+bXldNjFu6s14jpbQ=;
+        b=Ng26t/5mQ53+J3roM1vS/5C71dwziLLCBWbVpeMoZYiQN2qCarT2vq9wtFkO40AjWY
+         yVOm4ofPrptoxCfnhTLZgcxykD4/fT2c+/T+TL33ePXAqLL7cFCvqHPi/XkKT6iNud8u
+         97Yz7CbtN9rMP2LrVzREFmmf6OvkFmZXlZhQEJEyiK+o6NgmfejPNvvFRK8Z28D+cpQp
+         OCACbu42GFoPs+WywMIXtWFj/hNSOoppT55+nAIwV64dtSLBa7V6JNWIZXyvSaI9vrD/
+         gFwBaKsJc1zOnRuq/TTIhN+LH1aRKiBWcl35g2M2z1imuDDvuZKRTNLsCcWJTr8K3kxM
+         ImnA==
+X-Received: by 10.180.75.116 with SMTP id b20mr20761178wiw.49.1413470884877;
+        Thu, 16 Oct 2014 07:48:04 -0700 (PDT)
+Return-Path: <gross.philippe@gmail.com>
+Received: from [10.0.0.205] (213-193-123-54.static.cablecom.ch. [213.193.123.54])
+        by mx.google.com with ESMTPSA id he2sm2266845wib.4.2014.10.16.07.48.03
+        for <philippe.gross@4teamwork.ch>
+        (version=TLSv1 cipher=ECDHE-RSA-RC4-SHA bits=128/128);
+        Thu, 16 Oct 2014 07:48:04 -0700 (PDT)
+From: Philippe Gross <gross.philippe@gmail.com>
+Content-Type: multipart/alternative; boundary="Apple-Mail=_4C75D449-1F4B-4B10-8D41-37CB4553A1D1"
+Subject: XXS testmail
+Message-Id: <F0E85BC9-D8F2-41D9-A95E-9CD90BE8D6F6@gmail.com>
+Date: Thu, 16 Oct 2014 16:48:17 +0200
+To: Philippe Gross <philippe.gross@4teamwork.ch>
+Mime-Version: 1.0 (Mac OS X Mail 7.3 \(1878.6\))
+X-Mailer: Apple Mail (2.1878.6)
+
+
+--Apple-Mail=_4C75D449-1F4B-4B10-8D41-37CB4553A1D1
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+	charset=us-ascii
+
+Styled Title
+
+Styled text
+
+javascript link
+
+
+--Apple-Mail=_4C75D449-1F4B-4B10-8D41-37CB4553A1D1
+Content-Transfer-Encoding: 7bit
+Content-Type: text/html;
+	charset=us-ascii
+
+<html><head><meta http-equiv="Content-Type" content="text/html charset=us-ascii"></head><body style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><style>h1 {color:red; size:18px;}</style><h1>Styled Title</h1><div><br></div><div><div style="color:#014cff;">Styled text&nbsp;</div><br><div><br></div><b onmouseover=alert('hello')>click me!</b><br></div></div></div></body></html>
+--Apple-Mail=_4C75D449-1F4B-4B10-8D41-37CB4553A1D1--

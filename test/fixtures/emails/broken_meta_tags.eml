@@ -1,0 +1,57 @@
+MIME-Version: 1.0
+To: to@example.org
+From: from@example.org
+Subject: Lorem Ipsum
+Date: Thu, 01 Jan 1970 01:00:00 +0100
+Message-Id: <1>
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+x-mailer: Apple Mail (2.2104)
+Content-Type: multipart/mixed;
+ boundary="_007_868CB2E9786D41568D602026CBE426A4maccom_"
+MIME-Version: 1.0
+
+--_007_868CB2E9786D41568D602026CBE426A4maccom_
+Content-Type: multipart/alternative;
+ boundary="_000_868CB2E9786D41568D602026CBE426A4maccom_"
+
+--_000_868CB2E9786D41568D602026CBE426A4maccom_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+VGhpcyBpcyBzb21lIGJvZHkgdGV4dC4KTG9yZW0gSXBzdW0K
+
+--_000_868CB2E9786D41568D602026CBE426A4maccom_--
+
+--_007_868CB2E9786D41568D602026CBE426A4maccom_
+Content-Type: text/html; name="ATT00001.htm"
+Content-Description: ATT00001.htm
+Content-Disposition: attachment; filename="ATT00001.htm"; size=256;
+ creation-date="Thu, 03 Sep 2015 13:45:33 GMT";
+ modification-date="Thu, 03 Sep 2015 13:45:33 GMT"
+Content-ID: <3D7D5E40C59CE643A0AC663C09D436A7@example.org>
+Content-Transfer-Encoding: base64
+
+PGh0bWw+PGJvZHkgc3R5bGU9IndvcmQtd3JhcDogYnJlYWstd29yZDsgLXdlYmtpdC1uYnNwLW1v
+ZGU6IHNwYWNlOyAtd2Via2l0LWxpbmUtYnJlYWs6IGFmdGVyLXdoaXRlLXNwYWNlOyI+PGhlYWQ+
+PG1ldGEgaHR0cC1lcXVpdj0iQ29udGVudC1UeXBlIiBjb250ZW50PSJ0ZXh0L2h0bWwgY2hhcnNl
+dD11cy1hc2NpaSI+PC9oZWFkPjxkaXYgY2xhc3M9IkFwcGxlT3JpZ2luYWxDb250ZW50cyI+PGRp
+dj48L2Rpdj48L2Rpdj48L2JvZHk+PC9odG1sPg==
+
+--_007_868CB2E9786D41568D602026CBE426A4maccom_
+Content-Type: text/html; charset=iso-8859-1; name="ATT00002.htm"
+Content-Description: ATT00002.htm
+Content-Disposition: attachment; filename="ATT00002.htm"; size=315;
+ creation-date="Thu, 03 Sep 2015 13:45:33 GMT";
+ modification-date="Thu, 03 Sep 2015 13:45:33 GMT"
+Content-ID: <C75E167065D32849A2172F84F74A0A25@example.org>
+Content-Transfer-Encoding: base64
+
+JzxodG1sPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4
+dC9odG1sIGNoYXJzZXQ9aXNvLTg4NTktMSI+PC9oZWFkPjxib2R5IHN0eWxlPSJ3b3JkLXdyYXA6
+IGJyZWFrLXdvcmQ7IC13ZWJraXQtbmJzcC1tb2RlOiBzcGFjZTsgLXdlYmtpdC1saW5lLWJyZWFr
+OiBhZnRlci13aGl0ZS1zcGFjZTsiIGNsYXNzPSIiPjxkaXY+PGRpdiBjbGFzcz0iIj48cD5UaGlz
+IGlzIHNvbWUgdGV4dCB3aXRoIFVtbGF1dHMgLSBC5HJlbmdyYWJlbiAtIHNlZT88L2Rpdj48L2Rp
+dj48YnIgY2xhc3M9IiI+PC9ib2R5PjwvaHRtbD4n
+
+--_007_868CB2E9786D41568D602026CBE426A4maccom_--

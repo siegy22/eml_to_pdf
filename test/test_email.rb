@@ -11,3 +11,8 @@ class ConverterTest < MiniTest::Test
     assert_equal fixture("multipart_html_output.html", :html), email.to_html
   end
 end
+Dir["test/fixtures/emails/*.eml"].each do |test_file|
+  EmlToPdf.convert(test_file, "#{test_file[0..-5]}_output.pdf")
+end
+email = EmlToPdf::Email.new("test/fixtures/emails/multiple_html_parts.eml", "")
+m = email.instance_variable_get("@mail")

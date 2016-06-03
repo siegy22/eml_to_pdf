@@ -1,0 +1,124 @@
+Subject: Fwd: Lorem Ipsum from Hugo
+Mime-Version: 1.0 (Mac OS X Mail 6.5 \(1508\))
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="Apple-Mail=_E8C097A2-5BEB-4BDB-985B-87943069027E"
+X-Apple-Base-Url: x-msg://17/
+X-Universally-Unique-Identifier: b07b8413-a76b-4571-a5bd-df3a1511e0e3
+X-Apple-Mail-Remote-Attachments: YES
+From: John Doe <john@doe.com>
+X-Apple-Windows-Friendly: 1
+Date: Thu, 27 Mar 2014 09:25:26 +0100
+X-Apple-Mail-Signature:
+Message-Id: <647F51BE-52E1-4C99-984F-88E922CD2097@doe.com>
+X-Uniform-Type-Identifier: com.apple.mail-draft
+To: jane@doe.com
+
+
+--Apple-Mail=_E8C097A2-5BEB-4BDB-985B-87943069027E
+Content-Transfer-Encoding: 7bit
+Content-Type: text/html;
+	charset=us-ascii
+
+<html><head></head><body style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; "><div>Hey Jane,</div><div><br></div><div>Hugo has sent me the Lorem Ipsum, see attached mail:</div><object type="application/x-apple-msg-attachment" data="cid:12A3E003-E251-4983-9116-1E54EA8134A5" id="43c2cbcb-a6b8-4232-b057-9d83ea74f163" height="52" width="94.4727" apple-width="yes" apple-height="yes"></object></body></html>
+--Apple-Mail=_E8C097A2-5BEB-4BDB-985B-87943069027E
+Content-Transfer-Encoding: binary
+Content-Disposition: attachment;
+	filename=lorem.eml
+Content-Type: message/rfc822;
+	x-mac-hide-extension=yes;
+	x-unix-mode=0644;
+	name="lorem.eml"
+Content-Id: <12A3E003-E251-4983-9116-1E54EA8134A5>
+
+Subject: Lorem Ipsum
+Mime-Version: 1.0 (Mac OS X Mail 6.5 \(1508\))
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="Apple-Mail=_E835ABFB-7502-4E36-BDFE-BBFEE4A87F8E"
+X-Apple-Base-Url: x-msg://13/
+X-Universally-Unique-Identifier: 7fa0e5b1-308c-4c7b-8d23-8417cae9e9eb
+X-Apple-Mail-Remote-Attachments: YES
+From: Hugo Boss <hugo@boss.com>
+X-Apple-Windows-Friendly: 1
+Date: Thu, 27 Mar 2014 09:23:17 +0100
+X-Apple-Mail-Signature:
+Message-Id: <BD7BA5CF-6A4F-4931-852C-D960FE4B6D63@boss.com>
+X-Uniform-Type-Identifier: com.apple.mail-draft
+To: john@doe.com
+
+
+--Apple-Mail=_E835ABFB-7502-4E36-BDFE-BBFEE4A87F8E
+Content-Transfer-Encoding: 7bit
+Content-Type: text/html;
+	charset=us-ascii
+
+<html><head></head><body style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; "><div>Here is a Lorem Ipsum document:</div><object type="application/x-apple-msg-attachment" data="cid:9B341C2E-9912-415A-BACC-7FF2524A58A7" id="1ff68d83-1763-4b9c-9f5a-d521c4df6841" height="52" width="99.2852" apple-width="yes" apple-height="yes"></object></body></html>
+--Apple-Mail=_E835ABFB-7502-4E36-BDFE-BBFEE4A87F8E
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename=lorem.html
+Content-Type: text/html;
+	x-unix-mode=0644;
+	name="lorem.html"
+Content-Id: <9B341C2E-9912-415A-BACC-7FF2524A58A7>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lorem Ipsum</title>
+    </head>
+
+    <body>
+
+        <h1>Lorem Ipsum</h1>
+
+        <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+            sed diam nonumy eirmod tempor invidunt ut labore et dolore
+            magna aliquyam erat, sed diam voluptua. At vero eos et
+            accusam et justo duo dolores et ea rebum. Stet clita kasd
+            gubergren, no sea takimata sanctus est Lorem ipsum dolor
+            sit amet. Lorem ipsum dolor sit amet, consetetur
+            sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+            ut labore et dolore magna aliquyam erat, sed diam
+            voluptua. At vero eos et accusam et justo duo dolores et
+            ea rebum. Stet clita kasd gubergren, no sea takimata
+            sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor
+            sit amet, consetetur sadipscing elitr, sed diam nonumy
+            eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo
+            duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+            takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+
+        <p>
+            Duis autem vel eum iriure dolor in hendrerit in vulputate
+            velit esse molestie consequat, vel illum dolore eu feugiat
+            nulla facilisis at vero eros et accumsan et iusto odio
+            dignissim qui blandit praesent luptatum zzril delenit
+            augue duis dolore te feugait nulla facilisi. Lorem ipsum
+            dolor sit amet, consectetuer adipiscing elit, sed diam
+            nonummy nibh euismod tincidunt ut laoreet dolore magna
+            aliquam erat volutpat.
+        </p>
+
+        <p>
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation
+            ullamcorper suscipit lobortis nisl ut aliquip ex ea
+            commodo consequat. Duis autem vel eum iriure dolor in
+            hendrerit in vulputate velit esse molestie consequat, vel
+            illum dolore eu feugiat nulla facilisis at vero eros et
+            accumsan et iusto odio dignissim qui blandit praesent
+            luptatum zzril delenit augue duis dolore te feugait nulla
+            facilisi.
+        </p>
+
+        <p>Source: <a href="http://www.loremipsum.de/">http://www.loremipsum.de/</a></p>
+    </body>
+
+</html>
+
+--Apple-Mail=_E835ABFB-7502-4E36-BDFE-BBFEE4A87F8E--
+
+--Apple-Mail=_E8C097A2-5BEB-4BDB-985B-87943069027E--

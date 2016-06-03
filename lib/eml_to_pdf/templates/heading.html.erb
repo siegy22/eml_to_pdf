@@ -14,7 +14,7 @@
     </tr>
     <tr>
       <td><strong>Datum:</strong></td>
-      <td><%= format_date(@date) %></td>
+      <td><%= format_date(@date) if @date %></td>
     </tr>
   </table>
   <h3><%= @subject %></h3>

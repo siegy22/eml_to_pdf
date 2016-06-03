@@ -1,0 +1,24 @@
+Content-Type: multipart/alternative;
+ boundary="===============5151656922487848207=="
+MIME-Version: 1.0
+Subject: =?iso-8859-1?q?Sind_noch_B=FCror=E4ume_verf=FCgbar=3F?=
+From: from@example.org
+To: to@example.org
+
+--===============5151656922487848207==
+MIME-Version: 1.0
+Content-Type: text/plain; charset="iso8859-1"
+Content-Transfer-Encoding: base64
+
+SGFsbG8hClNpbmQgbm9jaCBC/HJvc3T8aGxlIHZvcmhhbmRlbj8=
+
+--===============5151656922487848207==
+MIME-Version: 1.0
+Content-Type: text/html; charset="iso8859-1"
+Content-Transfer-Encoding: base64
+
+PGh0bWw+CiAgPGhlYWQ+PC9oZWFkPgogIDxib2R5PgogICAgPHA+SGFsbG8hPGJyPgogICAgICAg
+U2luZCBub2NoIDxzdHJvbmc+Qvxyb3N0/GhsZTwvc3Ryb25nPiB2b3JoYW5kZW4/CiAgICA8L3A+
+CiAgPC9ib2R5Pgo8L2h0bWw+Cg==
+
+--===============5151656922487848207==--
