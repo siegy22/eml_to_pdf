@@ -5,28 +5,50 @@ module EmlToPdf
     MIME_TYPES = {
       plain_text: "text/plain",
       html: "text/html",
-      multipart_mixed: "multipart/mixed",
-      multipart_alternative: "multipart/alternative"
+      multipart_mixed: "multipart/mixed"
     }
 
     TEMPLATES_PATH = Pathname.new(File.expand_path(__dir__)) + "templates"
 
-    def initialize(input_path, fallback_text)
+    def initialize(input_path)
+      @input_path = input_path
       @mail = Mail.read(input_path)
-      @fallback_text = fallback_text
-    end
-
-    def visible_attachments
-      @mail.attachments.select do |attachment|
-        !attachment.inline?
-      end
     end
 
     def to_html
-      html = html_body(@mail).join
+      html = text_parts(@mail).join
       html = resolve_cids_from_attachments(html, @mail.attachments)
       html = add_mail_metadata_to_html(@mail, html)
       html
+    end
+
+    def text_parts(mail_or_part)
+      if mail_or_part.multipart?
+        parts = mail_or_part.parts
+        if mail_or_part.mime_type == MIME_TYPES[:multipart_alternative]
+          text_parts(extract_best_representation_from_parts(parts))
+        else
+          parts.map do |part|
+            text_parts(part)
+          end
+        end
+      else
+        best_part = if mail_or_part.mime_type == MIME_TYPES[:plain_text] && !mail_or_part.attachment?
+                      wrap_text_in_pre_tag(mail_or_part.decoded)
+                    elsif mail_or_part.mime_type == MIME_TYPES[:html] && !mail_or_part.attachment?
+                      mail_or_part.decoded
+                    else
+                      ""
+                    end
+        [best_part]
+      end.flatten
+    end
+
+    private
+    def visible_attachments(mail)
+      mail.attachments.select do |attachment|
+        !attachment.inline?
+      end
     end
 
     def resolve_cids_from_attachments(html, attachments)
@@ -61,14 +83,14 @@ module EmlToPdf
     end
 
     def extract_best_representation_from_parts(parts)
-      if html_part = find_body_with_type(parts, :html)
-        html_part.decoded
+      if multipart_part = parts.detect(&:multipart?)
+        multipart_part
+      elsif html_part = find_body_with_type(parts, :html)
+        html_part
       elsif text_part = find_body_with_type(parts, :plain_text)
-        wrap_text_in_pre_tag(text_part.decoded)
-      elsif multipart_part = find_body_with_type(parts, :multipart_mixed)
-        html_body(multipart_part)
+        text_part
       else
-        ""
+        "can't find useable part"
       end
     end
 
@@ -83,7 +105,7 @@ module EmlToPdf
     end
 
     def multipart_alternative?(part)
-      part.mime_type == MIME_TYPES[:multipart_alternative]
+      part.mime_type == MIME_TYPES[:multipart_alternative] || part.mime_type == MIME_TYPES[:multipart_related]
     end
 
 
@@ -101,11 +123,10 @@ module EmlToPdf
                                     cc: save_extract_header(mail, :cc),
                                     date: mail.date,
                                     subject: mail.subject,
-                                    attachments: visible_attachments)
+                                    attachments: visible_attachments(mail))
       heading = render_template("heading.html.erb", context.get_binding)
       style = render_template("style.html")
       html = "<body></body>" if html.empty?
-      p html
       doc = Nokogiri::HTML(html)
       doc.at_css("body").prepend_child(heading)
       doc.at_css("body").prepend_child(style)

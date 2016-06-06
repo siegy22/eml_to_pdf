@@ -11,7 +11,7 @@ require "eml_to_pdf/wkhtmltopdf"
 require "eml_to_pdf/metadata_context"
 
 module EmlToPdf
-  def self.convert(input, output, fallback_text: "No preview available")
-    Converter.new(input, output, fallback_text).convert
+  def self.convert(input, output)
+    Converter.new(input, output).convert
   end
 end

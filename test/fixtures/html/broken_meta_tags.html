@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<style type="text/css">
+ .email-metadata {
+   width: 100%;
+   background: #fff;
+   font-size: 12pt;
+   font-family: Arial;
+   padding-bottom: 20px;
+ }
+ .email-metadata table {
+   width: 100%;
+ }
+ .email-attachments {
+   padding: 0;
+   margin: 0;
+ }
+ .email-attachments:before,
+ .email-attachments:after {
+   content: "";
+   display: table;
+ }
+ .email-attachments:after {
+   clear: both;
+ }
+ .attachement {
+   padding: 5px 10px;
+   background-color: #eaeaea;
+   border: 1px solid #ccc;
+   display: table;
+   float: left;
+   margin-right: 10px;
+   margin-bottom: 10px;
+ }
+
+ .filename {
+   display: table-cell;
+   width: 75%;
+ }
+
+ .file-size {
+   display: table-cell;
+   width: 25%;
+   font-size: 80%;
+   color: #aaa;
+   padding-left: 5px;
+   text-align: right;
+ }
+
+ pre {
+   white-space: pre-wrap;
+ }
+
+ body {
+   margin: 0;
+   padding: 0;
+ }
+</style>
+<meta charset="UTF-8">
+<div class="email-metadata">
+  <table>
+    <tr>
+      <td><strong>Von:</strong></td>
+      <td>from@example.org</td>
+    </tr>
+    <tr>
+      <td><strong>An:</strong></td>
+      <td>to@example.org</td>
+    </tr>
+    <tr>
+      <td><strong>Cc:</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong>Datum:</strong></td>
+      <td>01.01.1970 um 01:00</td>
+    </tr>
+  </table>
+  <h3>Lorem Ipsum</h3>
+  <hr>
+  <ul class="email-attachments">
+    
+      <li class="attachement">
+        <span class="filename">ATT00001.htm</span>
+        <span class="file-size">256.00 B</span>
+      </li>
+    
+      <li class="attachement">
+        <span class="filename">ATT00002.htm</span>
+        <span class="file-size">315.00 B</span>
+      </li>
+    
+  </ul>
+</div>
+<pre>This is some body text.
+Lorem Ipsum
+</pre>
+</body></html>
