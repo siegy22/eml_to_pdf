@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class TestConfiguration < MiniTest::Test
+  def teardown
+    super
+    EmlToPdf.reset_configuration!
+  end
+
   def test_basic_configuration
     example_to_label = "Who to:"
     EmlToPdf.configure do |config|
