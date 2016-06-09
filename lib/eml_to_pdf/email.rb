@@ -1,4 +1,7 @@
-require 'pathname'
+require "pathname"
+require "nokogiri"
+require "mail"
+require "erb"
 
 module EmlToPdf
   class Email

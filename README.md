@@ -24,6 +24,20 @@ Or install it yourself as:
 
 ## Usage
 
+#### Basic Setup
+
+Use the `configure` method to configure your labels
+
+```ruby
+EmlToPdf.configure do |config|
+  config.from_label = "From =>"
+  config.to_label = "To =>"
+  config.cc_label = "Cc =>"
+  config.date_label = "Date =>"
+  config.date_format = "%d.%m.%Y" # see Date#strftime
+end
+```
+
 Use the `convert` method to covert an eml to a pdf
 
 ```ruby

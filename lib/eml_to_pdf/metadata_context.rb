@@ -1,3 +1,6 @@
+require "filesize"
+require "cgi"
+
 module EmlToPdf
   class MetadataContext
     def initialize(metadata)
@@ -6,12 +9,16 @@ module EmlToPdf
       end
     end
 
+    def config
+      EmlToPdf.configuration
+    end
+
     def format_attachment_size(attachment)
       Filesize.from("#{attachment.body.decoded.size} B").pretty
     end
 
     def format_date(date)
-      date.strftime("%d.%m.%Y um %H:%M")
+      date.strftime(config.date_format)
     end
 
     def html_escape(str)

@@ -1,7 +1,10 @@
 require 'minitest/autorun'
+require 'bundler/setup'
 require 'eml_to_pdf'
+require 'nokogiri'
 
 class MiniTest::Test
+
   TEST_FOLDER_PATH = Pathname.new(File.expand_path(__dir__))
 
   def email_fixture_path(name)

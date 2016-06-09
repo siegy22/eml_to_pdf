@@ -1,6 +1,17 @@
 require 'test_helper'
 
 class TestEmail < MiniTest::Test
+  def setup
+    super
+    EmlToPdf.configure do |config|
+      config.from_label = "Von:"
+      config.to_label = "An:"
+      config.cc_label = "Cc:"
+      config.date_label = "Datum:"
+      config.date_format = "%d.%m.%Y um %H:%M"
+    end
+  end
+
   def test_ascii_7bit
     email = EmlToPdf::Email.new(email_fixture_path("ascii_7bit"))
     assert_equal(html_fixture("ascii_7bit"), email.to_html)

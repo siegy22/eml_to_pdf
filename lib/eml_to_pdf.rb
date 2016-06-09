@@ -1,9 +1,5 @@
-require "cgi"
-require "mail"
-require "erb"
-require "nokogiri"
-require "filesize"
 require "eml_to_pdf/version"
+require "eml_to_pdf/configuration"
 require "eml_to_pdf/converter"
 require "eml_to_pdf/converter"
 require "eml_to_pdf/email"
@@ -13,5 +9,17 @@ require "eml_to_pdf/metadata_context"
 module EmlToPdf
   def self.convert(input, output)
     Converter.new(input, output).convert
+  end
+
+  def self.configure
+    yield configuration if block_given?
+  end
+
+  def self.configuration
+    @configuration ||= Configuration.new
+  end
+
+  def self.reset_configuration!
+    @configuration = Configuration.new
   end
 end
