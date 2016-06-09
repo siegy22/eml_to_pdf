@@ -22,29 +22,20 @@ module EmlToPdf
       html
     end
 
+    private
     def text_parts(mail_or_part)
-      if mail_or_part.multipart?
-        parts = mail_or_part.parts
-        if mail_or_part.mime_type == MIME_TYPES[:multipart_alternative]
-          text_parts(extract_best_representation_from_parts(parts))
-        else
-          parts.map do |part|
-            text_parts(part)
-          end
+      if mail_or_part.multipart? && multipart_alternative?(mail_or_part)
+        best_part = extract_best_part(mail_or_part.parts)
+        text_parts(best_part)
+      elsif mail_or_part.multipart?
+        mail_or_part.parts.map do |part|
+          text_parts(part)
         end
       else
-        best_part = if mail_or_part.mime_type == MIME_TYPES[:plain_text] && !mail_or_part.attachment?
-                      wrap_text_in_pre_tag(mail_or_part.decoded)
-                    elsif mail_or_part.mime_type == MIME_TYPES[:html] && !mail_or_part.attachment?
-                      mail_or_part.decoded
-                    else
-                      ""
-                    end
-        [best_part]
+        [text_body(mail_or_part)]
       end.flatten
     end
 
-    private
     def visible_attachments(mail)
       mail.attachments.select do |attachment|
         !attachment.inline?
@@ -70,19 +61,7 @@ module EmlToPdf
       end
     end
 
-    def html_body(mail_or_part)
-      if multipart_alternative?(mail_or_part)
-        [extract_best_representation_from_parts(mail_or_part.parts)]
-      elsif multipart_mixed?(mail_or_part)
-        mail_or_part.parts.map do |part|
-          html_body(part)
-        end
-      else
-        [extract_best_representation_from_parts(Array(mail_or_part))]
-      end.flatten
-    end
-
-    def extract_best_representation_from_parts(parts)
+    def extract_best_part(parts)
       if multipart_part = parts.detect(&:multipart?)
         multipart_part
       elsif html_part = find_body_with_type(parts, :html)
@@ -100,17 +79,18 @@ module EmlToPdf
       end
     end
 
-    def multipart_mixed?(part)
-      part.mime_type == MIME_TYPES[:multipart_mixed]
-    end
-
     def multipart_alternative?(part)
-      part.mime_type == MIME_TYPES[:multipart_alternative] || part.mime_type == MIME_TYPES[:multipart_related]
+      part.mime_type == MIME_TYPES[:multipart_alternative]
     end
 
-
-    def wrap_text_in_html(text)
-      "<!DOCTYPE html><html><head></head><body><pre>#{text}</pre></body></html>"
+    def text_body(mail_or_part)
+      if mail_or_part.mime_type == MIME_TYPES[:html] && !mail_or_part.attachment?
+        mail_or_part.decoded
+      elsif mail_or_part.mime_type == MIME_TYPES[:plain_text] && !mail_or_part.attachment?
+        wrap_text_in_pre_tag(mail_or_part.decoded)
+      else
+        ""
+      end
     end
 
     def wrap_text_in_pre_tag(text)
