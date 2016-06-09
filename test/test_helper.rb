@@ -8,6 +8,10 @@ class MiniTest::Test
     fixture_path(name + ".eml", :emails)
   end
 
+  def html_fixture(name)
+    fixture(name + ".html", :html)
+  end
+
   def fixture_path(name, subfolder = "")
     (TEST_FOLDER_PATH + "fixtures" + subfolder.to_s + name).to_s
   end

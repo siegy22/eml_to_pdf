@@ -5,7 +5,7 @@ module EmlToPdf
     MIME_TYPES = {
       plain_text: "text/plain",
       html: "text/html",
-      multipart_mixed: "multipart/mixed"
+      multipart_alternative: "multipart/alternative"
     }
 
     TEMPLATES_PATH = Pathname.new(File.expand_path(__dir__)) + "templates"
@@ -43,10 +43,10 @@ module EmlToPdf
     end
 
     def resolve_cids_from_attachments(html, attachments)
-      cid_list(attachments).inject(html) do |html, key_and_value|
+      cid_list(attachments).inject(html) do |html_text, key_and_value|
         k, v = key_and_value
-        html.gsub!(k, v)
-        html
+        html_text.gsub!(k, v)
+        html_text
       end
     end
 
