@@ -14,7 +14,7 @@ class TestConfiguration < MiniTest::Test
     assert_equal example_to_label, EmlToPdf.configuration.to_label
   end
 
-  def test_set_date_format
+  def test_set_invalid_date_format
     assert_raises(ArgumentError) do
       EmlToPdf.configure do |config|
         config.date_format = 1000

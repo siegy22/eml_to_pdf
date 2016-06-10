@@ -20,7 +20,7 @@ module EmlToPdf
 
     def to_html
       html = text_parts(@mail).join
-      html = resolve_cids_from_attachments(html, @mail.attachments)
+      html = resolve_cids_from_attachments(html, @mail.all_parts)
       html = add_mail_metadata_to_html(@mail, html)
       html
     end
