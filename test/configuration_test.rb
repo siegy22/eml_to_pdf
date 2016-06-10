@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TestConfiguration < MiniTest::Test
+class ConfigurationTest < MiniTest::Test
   def teardown
     super
     EmlToPdf.reset_configuration!

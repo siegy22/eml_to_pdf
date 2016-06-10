@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TestEmail < MiniTest::Test
+class EmailTest < MiniTest::Test
   def setup
     super
     EmlToPdf.configure do |config|
