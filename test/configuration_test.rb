@@ -14,14 +14,6 @@ class ConfigurationTest < MiniTest::Test
     assert_equal example_to_label, EmlToPdf.configuration.to_label
   end
 
-  def test_set_invalid_date_format
-    assert_raises(ArgumentError) do
-      EmlToPdf.configure do |config|
-        config.date_format = 1000
-      end
-    end
-  end
-
   def test_output_with_config
     # French setup
     EmlToPdf.configure do |config|
@@ -29,7 +21,9 @@ class ConfigurationTest < MiniTest::Test
       config.to_label = "À:"
       config.cc_label = "Cc:"
       config.date_label = "Date:"
-      config.date_format = "%Y"
+      config.date_format do |date|
+        date.strftime("%Y")
+      end
     end
     email = EmlToPdf::Email.new(email_fixture_path("latin1"))
     doc = Nokogiri::HTML(email.to_html)

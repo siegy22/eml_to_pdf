@@ -1,22 +1,25 @@
 module EmlToPdf
   class Configuration
     attr_accessor :from_label, :to_label, :cc_label, :date_label
-    attr_reader :date_format
 
     def initialize
       @from_label = "From"
       @to_label = "To"
       @cc_label = "Cc"
       @date_label = "Date"
-      @date_format = "%Y-%m-%d %H:%M:%S %z"
+      @date_format = lambda { |date| date.strftime("%Y-%m-%d %H:%M:%S %z") }
     end
 
-    def date_format=(value)
-      if value.is_a?(String)
-        @date_format = value
+    def date_format(&block)
+      if block_given?
+        @date_format = block
       else
-        raise ArgumentError, "You can only use a String to format the date. (See Date#strftime)"
+        @date_format
       end
+    end
+
+    def format_date(date)
+      @date_format.call(date)
     end
   end
 end

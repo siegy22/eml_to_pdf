@@ -18,7 +18,7 @@ module EmlToPdf
     end
 
     def format_date(date)
-      date.strftime(config.date_format)
+      config.format_date(date)
     end
 
     def html_escape(str)

@@ -8,7 +8,9 @@ class EmailTest < MiniTest::Test
       config.to_label = "An:"
       config.cc_label = "Cc:"
       config.date_label = "Datum:"
-      config.date_format = "%d.%m.%Y um %H:%M"
+      config.date_format do |date|
+        date.strftime("%d.%m.%Y um %H:%M")
+      end
     end
   end
 
