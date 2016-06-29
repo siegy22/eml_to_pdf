@@ -65,15 +65,10 @@ module EmlToPdf
     end
 
     def extract_best_part(parts)
-      if multipart_part = parts.detect(&:multipart?)
-        multipart_part
-      elsif html_part = find_body_with_type(parts, :html)
-        html_part
-      elsif text_part = find_body_with_type(parts, :plain_text)
-        text_part
-      else
-        "can't find useable part"
-      end
+      parts.detect(&:multipart?) ||
+        find_body_with_type(parts, :html) ||
+        find_body_with_type(parts, :plain_text) ||
+        EmptyPart.new
     end
 
     def find_body_with_type(parts, type)
@@ -123,11 +118,7 @@ module EmlToPdf
     end
 
     def save_extract_header(mail, header)
-      if header = mail.header[header]
-        header.decoded
-      else
-        ""
-      end
+      (mail.header[header] && mail.header[header].decoded) || ""
     end
   end
 end
