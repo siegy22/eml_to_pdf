@@ -5,6 +5,7 @@ A small converter to convert an eml file to a pdf.
 This gem uses `wkhtmltopdf`. You can get the installer from [here](http://wkhtmltopdf.org/downloads.html)
 
 [![Build Status](https://travis-ci.org/Elektron1c97/eml_to_pdf.svg?branch=master)](https://travis-ci.org/Elektron1c97/eml_to_pdf)
+[![Code Climate](https://codeclimate.com/github/Elektron1c97/eml_to_pdf/badges/gpa.svg)](https://codeclimate.com/github/Elektron1c97/eml_to_pdf)
 
 ## Installation
 
