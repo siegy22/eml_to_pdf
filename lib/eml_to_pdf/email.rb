@@ -5,12 +5,6 @@ require "erb"
 
 module EmlToPdf
   class Email
-    MIME_TYPES = {
-      plain_text: "text/plain",
-      html: "text/html",
-      multipart_alternative: "multipart/alternative"
-    }
-
     TEMPLATES_PATH = Pathname.new(File.expand_path(__dir__)) + "templates"
 
     def initialize(input_path)
@@ -19,26 +13,15 @@ module EmlToPdf
     end
 
     def to_html
-      html = text_parts(@mail).join
+      extraction = ExtractionStep.new(@mail)
+      extraction = extraction.next until extraction.finished?
+      html = extraction.to_html
       html = resolve_cids_from_attachments(html, @mail.all_parts)
       html = add_mail_metadata_to_html(@mail, html)
       html
     end
 
     private
-    def text_parts(mail_or_part)
-      if mail_or_part.multipart? && multipart_alternative?(mail_or_part)
-        best_part = extract_best_part(mail_or_part.parts)
-        text_parts(best_part)
-      elsif mail_or_part.multipart?
-        mail_or_part.parts.map do |part|
-          text_parts(part)
-        end
-      else
-        [text_body(mail_or_part)]
-      end.flatten
-    end
-
     def visible_attachments(mail)
       mail.attachments.select do |attachment|
         !attachment.inline?
@@ -62,37 +45,6 @@ module EmlToPdf
         end
         list
       end
-    end
-
-    def extract_best_part(parts)
-      parts.detect(&:multipart?) ||
-        find_body_with_type(parts, :html) ||
-        find_body_with_type(parts, :plain_text) ||
-        EmptyPart.new
-    end
-
-    def find_body_with_type(parts, type)
-      parts.detect do |part|
-        part.mime_type == MIME_TYPES[type]
-      end
-    end
-
-    def multipart_alternative?(part)
-      part.mime_type == MIME_TYPES[:multipart_alternative]
-    end
-
-    def text_body(mail_or_part)
-      if mail_or_part.mime_type == MIME_TYPES[:html] && !mail_or_part.attachment?
-        mail_or_part.decoded
-      elsif mail_or_part.mime_type == MIME_TYPES[:plain_text] && !mail_or_part.attachment?
-        wrap_text_in_pre_tag(mail_or_part.decoded)
-      else
-        ""
-      end
-    end
-
-    def wrap_text_in_pre_tag(text)
-      "<pre>#{text}</pre>"
     end
 
     def add_mail_metadata_to_html(mail, html)

@@ -1,54 +1,60 @@
 module EmlToPdf
-
-  # TODO: in email#to_html remove recursive function with this class
-  # for a better control and to be able to make more unit tests.
   class ExtractionStep
+    MIME_TYPES = {
+      plain_text: "text/plain",
+      html: "text/html",
+      multipart_alternative: "multipart/alternative"
+    }
+
     def initialize(mail_or_part)
       @mail_or_part = mail_or_part
     end
-
-    # extraction = ExtractionStep.new(@mail)
-    # extraction = extraction.next until extraction.finished?
 
     def next
       if multipart_alternative?(@mail_or_part)
         best_part = extract_best_part(@mail_or_part.parts)
         ExtractionStep.new(best_part)
       elsif @mail_or_part.multipart?
-
+        ExtractionStepList.new(@mail_or_part.parts.map { |part| ExtractionStep.new(part) })
       else
-
+        self
       end
     end
 
     def finished?
-      @mail_or_part.parts.none?(&:multipart?)
+      !@mail_or_part.multipart?
     end
 
     def to_html
-      if html_part = @mail_or_part.html_part
-        html_part
-      elsif text_part = @mail_or_part.text_part
-        wrap_text_in_pre_tag(text_part)
+      text_body(@mail_or_part)
+    end
+
+    private
+    def multipart_alternative?(part)
+      part.mime_type == MIME_TYPES[:multipart_alternative]
+    end
+
+    def text_body(mail_or_part)
+      if mail_or_part.mime_type == MIME_TYPES[:html] && !mail_or_part.attachment?
+        mail_or_part.decoded
+      elsif mail_or_part.mime_type == MIME_TYPES[:plain_text] && !mail_or_part.attachment?
+        wrap_text_in_pre_tag(mail_or_part.decoded)
       else
         ""
       end
     end
 
     def extract_best_part(parts)
-      if multipart_part = parts.detect(&:multipart?)
-        multipart_part
-      elsif html_part = find_body_with_type(parts, :html)
-        html_part
-      elsif text_part = find_body_with_type(parts, :plain_text)
-        text_part
-      else
-        "can't find useable part"
-      end
+      parts.detect(&:multipart?) ||
+        find_body_with_type(parts, :html) ||
+        find_body_with_type(parts, :plain_text) ||
+        EmptyPart.new
     end
 
-    def multipart_alternative?(part)
-      part.mime_type == MIME_TYPES[:multipart_alternative]
+    def find_body_with_type(parts, type)
+      parts.detect do |part|
+        part.mime_type == MIME_TYPES[type]
+      end
     end
 
     def wrap_text_in_pre_tag(text)
