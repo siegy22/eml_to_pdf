@@ -3,25 +3,25 @@
   <table>
     <tr>
       <td><strong><%= config.from_label %></strong></td>
-      <td><%= html_escape(@from) %></td>
+      <td><%= html_escape(from) %></td>
     </tr>
     <tr>
       <td><strong><%= config.to_label %></strong></td>
-      <td><%= html_escape(@to) %></td>
+      <td><%= html_escape(to) %></td>
     </tr>
     <tr>
       <td><strong><%= config.cc_label %></strong></td>
-      <td><%= html_escape(@cc) %></td>
+      <td><%= html_escape(cc) %></td>
     </tr>
     <tr>
       <td><strong><%= config.date_label %></strong></td>
-      <td><%= format_date(@date) if @date %></td>
+      <td><%= format_date(date) if date %></td>
     </tr>
   </table>
-  <h3><%= @subject %></h3>
+  <h3><%= subject %></h3>
   <hr>
   <ul class="email-attachments">
-    <% @attachments.each do |att| %>
+    <% attachments.each do |att| %>
       <li class="attachement">
         <span class="filename"><%= att.filename %></span>
         <span class="file-size"><%= format_attachment_size(att) %></span>

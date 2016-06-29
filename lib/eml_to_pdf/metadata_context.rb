@@ -1,14 +1,9 @@
 require "filesize"
 require "cgi"
+require "ostruct"
 
 module EmlToPdf
-  class MetadataContext
-    def initialize(metadata)
-      metadata.each do |k, v|
-        eval("@#{k}=v")
-      end
-    end
-
+  class MetadataContext < OpenStruct
     def config
       EmlToPdf.configuration
     end
