@@ -17,7 +17,7 @@ module EmlToPdf
       extraction = extraction.next until extraction.finished?
       html = extraction.to_html
       html = resolve_cids_from_attachments(html, @mail.all_parts)
-      html = add_mail_metadata_to_html(@mail, html)
+      html = add_mail_metadata_to_html(@mail, html) if display_metadata?
       html
     end
 
@@ -71,6 +71,10 @@ module EmlToPdf
 
     def save_extract_header(mail, header)
       (mail.header[header] && mail.header[header].decoded) || ""
+    end
+
+    def display_metadata?
+      EmlToPdf.configuration.metadata_visible
     end
   end
 end

@@ -25,13 +25,27 @@ class ConfigurationTest < MiniTest::Test
         date.strftime("%Y")
       end
     end
-    email = EmlToPdf::Email.new(email_fixture_path("latin1"))
-    doc = Nokogiri::HTML(email.to_html)
-    table = doc.at_css(".email-metadata table")
+    table = metadata_table
     assert_equal "De:", table.at_css("tr:nth-child(1) td:nth-child(1)").text
     assert_equal "À:", table.at_css("tr:nth-child(2) td:nth-child(1)").text
     assert_equal "Cc:", table.at_css("tr:nth-child(3) td:nth-child(1)").text
     assert_equal "Date:", table.at_css("tr:nth-child(4) td:nth-child(1)").text
     assert_equal "1970", table.at_css("tr:nth-child(4) td:nth-child(2)").text
+  end
+
+  def test_no_output_with_config
+    EmlToPdf.configure do |config|
+      config.metadata_visible = false
+    end
+
+    table = metadata_table
+
+    assert_nil table
+  end
+
+  def metadata_table
+    email = EmlToPdf::Email.new(email_fixture_path("latin1"))
+    doc = Nokogiri::HTML(email.to_html)
+    doc.at_css(".email-metadata table")
   end
 end
