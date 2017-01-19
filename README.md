@@ -1,12 +1,11 @@
 # EmlToPdf
 
-Welcome to EmlToPdf.
+Welcome to SwordPL/EmlToPdf fork.
 A small converter to convert an eml file to a pdf.
 This gem uses `wkhtmltopdf`. You can get the installer from [here](http://wkhtmltopdf.org/downloads.html)
 
-[![Build Status](https://travis-ci.org/siegy22/eml_to_pdf.svg?branch=master)](https://travis-ci.org/siegy22/eml_to_pdf)
-[![Code Climate](https://codeclimate.com/github/siegy22/eml_to_pdf/badges/gpa.svg)](https://codeclimate.com/github/siegy22/eml_to_pdf)
-
+[![Build Status](https://travis-ci.org/SwordPL/eml_to_pdf.svg?branch=master)](https://travis-ci.org/SwordPL/eml_to_pdf)
+[![Code Climate](https://codeclimate.com/github/SwordPL/eml_to_pdf/badges/gpa.svg)](https://codeclimate.com/github/SwordPL/eml_to_pdf)
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -38,6 +37,7 @@ EmlToPdf.configure do |config|
   config.date_format do |date|
     date.strftime("%Y")
   end
+  config.metadata_visible = false
 end
 ```
 
@@ -53,7 +53,7 @@ Or you can use the executable
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake false` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 

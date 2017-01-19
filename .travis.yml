@@ -7,3 +7,6 @@ before_install:
   - wget http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
   - tar -xvf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
   - export PATH=$PATH:$PWD/wkhtmltox/bin/
+addons:
+    code_climate:
+        repo_token: 316f9b6cace768629cd46c6f0196f8f090d6d9f8740ce5802ff0dce48ca95d51

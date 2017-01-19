@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'eml_to_pdf/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'eml_to_pdf'
+  spec.name          = 'eml_to_pdf_ext'
   spec.version       = EmlToPdf::VERSION
   spec.authors       = ['Yves Siegrist', 'Hubert Pomorski']
   spec.email         = %w(Elektron1c97@gmail.com hubert.pomorski@sabre.com)
 
   spec.description   = %q{This gem uses wkhtmltopdf to convert an eml to a pdf. (eml -> html -> pdf)}
   spec.summary       = %q{This gem allows you to convert an eml (email) into a pdf.}
-  spec.homepage      = 'https://github.com/Elektron1c97/eml_to_pdf'
+  spec.homepage      = 'https://github.com/SwordPL/eml_to_pdf'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
