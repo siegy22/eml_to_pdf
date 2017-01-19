@@ -17,7 +17,7 @@ module EmlToPdf
       extraction = extraction.next until extraction.finished?
       html = extraction.to_html
       html = resolve_cids_from_attachments(html, @mail.all_parts)
-      html = add_mail_metadata_to_html(@mail, html)
+      html = add_mail_metadata_to_html(@mail, html) if display_metadata?
       html
     end
 
@@ -58,8 +58,12 @@ module EmlToPdf
       style = render_template("style.html")
       html = "<body></body>" if html.empty?
       doc = Nokogiri::HTML(html)
-      doc.at_css("body").prepend_child(heading)
-      doc.at_css("body").prepend_child(style)
+      if doc.at_css("body").first_element_child.nil?
+        doc.at_css("body").add_child(heading)
+      else
+        doc.at_css("body").first_element_child.add_previous_sibling(heading)
+      end
+      doc.at_css("body").first_element_child.add_previous_sibling(style)
       doc.to_html
     end
 
@@ -71,6 +75,10 @@ module EmlToPdf
 
     def save_extract_header(mail, header)
       (mail.header[header] && mail.header[header].decoded) || ""
+    end
+
+    def display_metadata?
+      EmlToPdf.configuration.metadata_visible
     end
   end
 end

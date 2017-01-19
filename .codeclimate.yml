@@ -1,5 +1,26 @@
-languages:
-  Ruby: true
+---
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+      - python
+      - php
+  fixme:
+    enabled: true
+  rubocop:
+    enabled: true
+ratings:
+  paths:
+  - "**.inc"
+  - "**.js"
+  - "**.jsx"
+  - "**.module"
+  - "**.php"
+  - "**.py"
+  - "**.rb"
 exclude_paths:
-- "lib/eml_to_pdf/extraction_step.rb"
-- "test/"
+- lib/eml_to_pdf/extraction_step.rb
+- test/
