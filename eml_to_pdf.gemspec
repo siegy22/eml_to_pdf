@@ -27,5 +27,5 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'filesize', '~> 0.1.1'
   spec.add_runtime_dependency 'mail', '~> 2.5', '>= 2.5.4'
-  spec.add_runtime_dependency 'nokogiri', '~> 1.6', '>= 1.6.7.2'
+  spec.add_runtime_dependency 'nokogiri', '1.5.2'
 end

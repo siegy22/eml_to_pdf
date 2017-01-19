@@ -58,8 +58,12 @@ module EmlToPdf
       style = render_template("style.html")
       html = "<body></body>" if html.empty?
       doc = Nokogiri::HTML(html)
-      doc.at_css("body").prepend_child(heading)
-      doc.at_css("body").prepend_child(style)
+      if doc.at_css("body").first_element_child.nil?
+        doc.at_css("body").add_child(heading)
+      else
+        doc.at_css("body").first_element_child.add_previous_sibling(heading)
+      end
+      doc.at_css("body").first_element_child.add_previous_sibling(style)
       doc.to_html
     end
 
