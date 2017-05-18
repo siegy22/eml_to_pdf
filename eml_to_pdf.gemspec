@@ -22,10 +22,10 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 2.2.0"
 
   spec.add_development_dependency "bundler", "~> 1.10"
-  spec.add_development_dependency "rake", "~> 11.0"
+  spec.add_development_dependency "rake", "~> 12.0"
   spec.add_development_dependency 'minitest', '~> 5.9'
 
   spec.add_runtime_dependency 'filesize', '~> 0.1.1'
   spec.add_runtime_dependency 'mail', '~> 2.5', '>= 2.5.4'
-  spec.add_runtime_dependency 'nokogiri', '~> 1.6', '>= 1.6.7.2'
+  spec.add_runtime_dependency 'nokogiri', '~> 1.7'
 end
