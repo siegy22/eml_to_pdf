@@ -48,7 +48,7 @@ module EmlToPdf
       parts.detect(&:multipart?) ||
         find_body_with_type(parts, :html) ||
         find_body_with_type(parts, :plain_text) ||
-        EmptyPart.new
+        EmlToPdf::EmptyPart.new
     end
 
     def find_body_with_type(parts, type)
