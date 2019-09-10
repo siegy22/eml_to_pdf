@@ -14,11 +14,6 @@ class EmailTest < MiniTest::Test
     end
   end
 
-  def teardown
-    super
-    EmlToPdf.reset_configuration!
-  end
-
   def test_ascii_7bit
     email = EmlToPdf::Email.new(email_fixture_path("ascii_7bit"))
     assert_equal(html_fixture("ascii_7bit"), email.to_html)
@@ -55,6 +50,7 @@ class EmailTest < MiniTest::Test
   end
 
   def test_fwd_attachment
+    skip if running_on_ci?
     email = EmlToPdf::Email.new(email_fixture_path("fwd_attachment"))
     assert_equal(html_fixture("fwd_attachment"), email.to_html)
   end
@@ -90,6 +86,7 @@ class EmailTest < MiniTest::Test
   end
 
   def test_nested_html_attachment
+    skip if running_on_ci?
     email = EmlToPdf::Email.new(email_fixture_path("nested_html_attachment"))
     assert_equal(html_fixture("nested_html_attachment"), email.to_html)
   end
