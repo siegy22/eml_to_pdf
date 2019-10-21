@@ -1,3 +1,6 @@
+require 'eml_to_pdf/extraction_step_list'
+require 'eml_to_pdf/empty_part'
+
 module EmlToPdf
   class ExtractionStep
     MIME_TYPES = {
