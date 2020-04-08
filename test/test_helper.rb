@@ -22,4 +22,8 @@ class MiniTest::Test
   def fixture(name, subfolder = "")
     File.read(fixture_path(name, subfolder))
   end
+
+  def assert_equal_without_cr(expected, actual)
+    assert_equal(expected.gsub(/\r/, ''), actual.gsub(/\r/, ''))
+  end
 end
