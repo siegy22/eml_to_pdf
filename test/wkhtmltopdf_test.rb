@@ -5,7 +5,7 @@ class WkhtmltopdfTest < MiniTest::Test
     error = assert_raises EmlToPdf::Wkhtmltopdf::ConversionError do
       EmlToPdf::Wkhtmltopdf.convert(broken_html, TEST_FOLDER_PATH + ".." + "tmp" + "test_out.pdf")
     end
-    assert_equal("Exit with code 1 due to network error: HostNotFoundError\n", error.message)
+    assert_equal(wkhtml_to_pdf_error_message, error.message)
   end
 
   def broken_html
@@ -15,6 +15,6 @@ class WkhtmltopdfTest < MiniTest::Test
   end
 
   def wkhtml_to_pdf_error_message
-    "Exit with code 1 due to network error: HostNotFoundError\n"
+    "sh: 1: wkhtmltopdf: not found\n"
   end
 end

@@ -34,4 +34,17 @@ class ConfigurationTest < MiniTest::Test
     assert_equal "Date:", table.at_css("tr:nth-child(4) td:nth-child(1)").text
     assert_equal "1970", table.at_css("tr:nth-child(4) td:nth-child(2)").text
   end
+
+  def test_custom_wkhtml2pdf
+    EmlToPdf.configure do |config|
+      config.wkhtmltopdf = '/my_custom_path/wkhtmltopdf'
+    end
+
+    mock = MiniTest::Mock.new
+    mock.expect(:call, nil, ["/my_custom_path/wkhtmltopdf --encoding utf-8 --footer-center [page] --footer-spacing 2.5 --quiet - output_path 2>&1", 'r+'])
+    IO.stub(:popen, mock) do
+      EmlToPdf::Wkhtmltopdf.convert('input_path', 'output_path')
+    end
+    mock.verify
+  end
 end
