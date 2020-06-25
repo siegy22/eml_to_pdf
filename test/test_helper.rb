@@ -26,4 +26,14 @@ class MiniTest::Test
   def assert_equal_without_cr(expected, actual)
     assert_equal(expected.gsub(/\r/, ''), actual.gsub(/\r/, ''))
   end
+
+  def teardown
+    super
+    EmlToPdf.reset_configuration!
+  end
+
+  private
+  def running_on_ci?
+    ENV['TRAVIS'] == 'true'
+  end
 end
