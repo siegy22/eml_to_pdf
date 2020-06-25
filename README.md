@@ -31,6 +31,7 @@ Use the `configure` method to configure your labels
 
 ```ruby
 EmlToPdf.configure do |config|
+  config.timeout = 60 # Seconds, defaults to 0
   config.from_label = "From =>"
   config.to_label = "To =>"
   config.cc_label = "Cc =>"

@@ -16,6 +16,17 @@ class WkhtmltopdfTest < MiniTest::Test
     assert_includes(error.message, "/bin/shouldnexist")
   end
 
+  def test_raises_timeout_error_if_configured
+    EmlToPdf.configure { |config| config.timeout = 0.1 }
+
+    IO.stub(:popen, -> (*) { sleep 0.2 }) do
+      error = assert_raises EmlToPdf::Wkhtmltopdf::ConversionTimeoutError do
+        EmlToPdf::Wkhtmltopdf.convert('input', 'output')
+      end
+      assert_equal("Failed to convert within the configured timeout. Use EmlToPdf.configure to increase the timeout if needed.", error.message)
+    end
+  end
+
   def broken_html
     <<-HTML
       <html><img src="http://no-exist.com/asdf/blabla"></html>
