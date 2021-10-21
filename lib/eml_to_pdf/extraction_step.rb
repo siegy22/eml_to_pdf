@@ -18,6 +18,7 @@ module EmlToPdf
         best_part = extract_best_part(@mail_or_part.parts)
         ExtractionStep.new(best_part)
       elsif @mail_or_part.multipart?
+	puts @mail_or_part
         ExtractionStepList.new(@mail_or_part.parts.map { |part| ExtractionStep.new(part) })
       else
         self
