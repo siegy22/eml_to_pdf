@@ -2,32 +2,37 @@ require "pathname"
 require "nokogiri"
 require "mail"
 require "erb"
-
+​
 module EmlToPdf
   class Email
     TEMPLATES_PATH = Pathname.new(File.expand_path(__dir__)) + "templates"
-
+    ## Change
+    WHITELIST_MIME_TYPES = ['application/octet-stream', 'pdf']
+​
     def initialize(input_path)
       @input_path = input_path
       @mail = Mail.read(input_path)
     end
-
+​
     def to_html
       extraction = ExtractionStep.new(@mail)
       extraction = extraction.next until extraction.finished?
       html = extraction.to_html
       html = resolve_cids_from_attachments(html, @mail.all_parts)
       html = add_mail_metadata_to_html(@mail, html)
+      ## Change
+      download_attachments(@mail)
       html
     end
-
+​
     private
+​
     def visible_attachments(mail)
       mail.attachments.select do |attachment|
         !attachment.inline?
       end
     end
-
+​
     def resolve_cids_from_attachments(html, attachments)
       cid_list(attachments).inject(html) do |html_text, key_and_value|
         k, v = key_and_value
@@ -35,7 +40,20 @@ module EmlToPdf
         html_text
       end
     end
-
+​
+    ## Change
+    def download_attachments(mail)
+      path = File.dirname(@input_path)
+      input_filename = File.basename(@input_path, ".*")
+      mail.attachments.each do |attachment|
+        if WHITELIST_MIME_TYPES.include? attachment.mime_type
+          File.open("#{path}/#{input_filename}-#{attachment.filename.gsub(/\s+/, "")}", 'wb') do |f|
+            f.write(attachment.decoded)
+          end
+        end
+      end
+    end
+​
     def cid_list(attachments)
       @cid_list ||= attachments.inject({}) do |list, attachment|
         if attachment.content_id && attachment.content_transfer_encoding == "base64"
@@ -46,7 +64,7 @@ module EmlToPdf
         list
       end
     end
-
+​
     def add_mail_metadata_to_html(mail, html)
       context = MetadataContext.new(from: save_extract_header(mail, :from),
                                     to: save_extract_header(mail, :to),
@@ -62,13 +80,13 @@ module EmlToPdf
       doc.at_css("body").prepend_child(style)
       doc.to_html
     end
-
+​
     def render_template(filename, binding = nil)
       template = File.read(TEMPLATES_PATH + filename)
       renderer = ERB.new(template)
       renderer.result(binding)
     end
-
+​
     def save_extract_header(mail, header)
       (mail.header[header] && mail.header[header].decoded) || ""
     end
