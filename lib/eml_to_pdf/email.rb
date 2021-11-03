@@ -5,8 +5,9 @@ require "erb"
 module EmlToPdf
   class Email
     TEMPLATES_PATH = Pathname.new(File.expand_path(__dir__)) + "templates"
-    VALID_ATTACHMENT_FORMAT = [
+        VALID_ATTACHMENT_FORMAT = [
       'text/plain',
+      'message/rfc822',
       'pdf',
       'image/tiff',
       'tiff',
@@ -26,7 +27,7 @@ module EmlToPdf
       'ppt',
       'vnd.ms-powerpoint',
       'pptx',
-      'vnd.openxmlformats-officedocument.presentationml.presentation',
+      'vnd.openxmlformats-officedocument.presentationml.presentation'
     ]
     def initialize(input_path)
       @input_path = input_path
