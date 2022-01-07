@@ -9,6 +9,7 @@ module EmlToPdf
       'text/plain',
       'message/rfc822',
       'pdf',
+      'eml',
       'image/tiff',
       'tiff',
       'image/tif',
