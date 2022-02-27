@@ -13,6 +13,10 @@ module EmlToPdf
     Converter.new(input, output).convert
   end
 
+  def self.convert_all(input, output, combine_pdf = false)
+    Converter.new(input, output, combine_pdf).convert_all
+  end
+
   def self.configure
     yield configuration if block_given?
   end

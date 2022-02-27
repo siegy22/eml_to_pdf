@@ -2,6 +2,8 @@ require "pathname"
 require "nokogiri"
 require "mail"
 require "erb"
+require "tempfile"
+
 module EmlToPdf
   class Email
     TEMPLATES_PATH = Pathname.new(File.expand_path(__dir__)) + "templates"
@@ -9,7 +11,7 @@ module EmlToPdf
       'text/plain',
       'message/rfc822',
       'pdf',
-      'eml',
+      #'eml',
       'image/tiff',
       'tiff',
       'image/tif',
@@ -30,20 +32,43 @@ module EmlToPdf
       'pptx',
       'vnd.openxmlformats-officedocument.presentationml.presentation'
     ]
-    def initialize(input_path)
+    def initialize(input_path, download_files = true)
       @input_path = input_path
       @mail = Mail.read(input_path)
+      @download_files = download_files
     end
+
+    def attachments
+      @mail.attachments
+    end
+
+    def parts
+      @mail.parts
+    end
+
+    def mail_object
+      @mail
+    end
+
     def to_html
       extraction = ExtractionStep.new(@mail)
-      extraction = extraction.next until extraction.finished?
+      until extraction.finished?
+        extraction = extraction.next
+      end
+
       html = extraction.to_html
       html = resolve_cids_from_attachments(html, @mail.all_parts)
       html = add_mail_metadata_to_html(@mail, html)
-      download_attachments(@mail)
+      download_attachments(@mail) if @download_files
       html
     end
+
+    def extract_emls
+      ExtractionStep.new(@mail, @input_path).build_emls(@mail)
+    end
+
     private
+  
     def visible_attachments(mail)
       mail.attachments.select do |attachment|
         !attachment.inline?
@@ -67,6 +92,19 @@ module EmlToPdf
         end
       end
     end
+
+    def download_attachment(attachment)
+      path = File.dirname(@input_path)
+      input_filename = File.basename(@input_path, ".*")
+      file_name = "#{path}/#{input_filename}-#{attachment.filename.gsub(/\s+/, "")}"
+      if VALID_ATTACHMENT_FORMAT.include?(attachment.mime_type.split('application/').join(""))
+        File.open(file_name, 'wb') do |f|
+          f.write(attachment.decoded)
+        end
+      end
+      file_name
+    end
+
     def cid_list(attachments)
       @cid_list ||= attachments.inject({}) do |list, attachment|
         if attachment.content_id && attachment.content_transfer_encoding == "base64"
