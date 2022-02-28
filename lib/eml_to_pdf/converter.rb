@@ -11,9 +11,9 @@ module EmlToPdf
     def convert
       email = Email.new(@input_path, !@combine_pdf)
       html = email.to_html
-      Wkhtmltopdf.convert(html, @output_path)
+      Wkhtmltopdf.convert(html, temp_pdf_file_path)
       if @combine_pdf
-        combine_pdfs(@output_path)
+        combine_pdfs(temp_pdf_file_path)
         if any_application_attachments?(email.parts)
           email.attachments.each do |attachement|
             combine_pdfs(email.send(:download_attachment, attachement)) unless attachement.inline?
@@ -36,9 +36,9 @@ module EmlToPdf
     end
 
     def combine_pdfs(pdf_file_path)
-      combined_file = File.exist?(combined_file_path) ? CombinePDF.load(combined_file_path) : CombinePDF.new
+      combined_file = File.exist?(@output_path) ? CombinePDF.load(@output_path) : CombinePDF.new
       combined_file << CombinePDF.load(pdf_file_path)
-      combined_file.save combined_file_path
+      combined_file.save @output_path
     end
 
     private
@@ -47,8 +47,8 @@ module EmlToPdf
       @output_dir ||= File.dirname(@output_path)
     end
 
-    def combined_file_path
-      @final_combined_file ||= "#{output_dir}/final_pdf_file_.pdf"
+    def temp_pdf_file_path
+      @final_combined_file ||= "#{output_dir}/#{Time.now.to_i}.pdf"
     end
   end
 end
