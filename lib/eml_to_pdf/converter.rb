@@ -30,7 +30,7 @@ module EmlToPdf
       convert # convert initial email content
       email = Email.new(@input_path)
       email.extract_emls.each do |eml|
-        self.class.new(eml, eml.gsub('.eml', '.pdf'), @combine_pdf).convert
+        self.class.new(eml, @output_path, @combine_pdf).convert
       end
       
     end
