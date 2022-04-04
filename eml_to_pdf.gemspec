@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'filesize', '~> 0.1.1'
   spec.add_runtime_dependency 'mail', '~> 2.5', '>= 2.5.4'
   spec.add_runtime_dependency 'nokogiri', '~> 1.7'
+  spec.add_runtime_dependency 'combine_pdf', '~> 1.0.19'
 end

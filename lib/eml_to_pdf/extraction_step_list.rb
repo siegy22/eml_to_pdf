@@ -8,6 +8,10 @@ module EmlToPdf
       self.class.new(@steps.map(&:next))
     end
 
+    def build_emls
+      self.class.new(@steps.map(&:build_emls))
+    end
+
     def finished?
       @steps.all?(&:finished?)
     end

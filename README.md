@@ -48,9 +48,19 @@ Use the `convert` method to covert an eml to a pdf
 EmlToPdf.convert("~/Desktop/my_test_email.eml", "~/Desktop/converted_email.pdf")
 ```
 
+Use the `convert_all` method to covert an eml to a pdf
+
+```ruby
+EmlToPdf.convert_all("~/Desktop/my_test_email.eml", "~/Desktop/converted_email.pdf", "Trur or False")
+```
+
 Or you can use the executable
 
     $ eml_to_pdf input-path output-path
+
+Or you can use the executable for all convertion
+
+    $ eml_to_pdf input-path output-path true_or_false
 
 ## Development
 
