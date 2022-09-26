@@ -9,6 +9,11 @@ module EmlToPdf
       @date_label = "Date"
       @date_format = lambda { |date| date.strftime("%Y-%m-%d %H:%M:%S %z") }
       @wkhtmltopdf = 'wkhtmltopdf'
+      @security_options = %w[
+        --disable-local-file-access
+        --disable-internal-links
+        --disable-external-links
+      ]
       @timeout = 0
     end
 
